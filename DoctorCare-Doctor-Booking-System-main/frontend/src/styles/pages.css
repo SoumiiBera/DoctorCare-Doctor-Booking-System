@@ -1,0 +1,630 @@
+/* ==========================================================================
+   Page-level layouts
+   ========================================================================== */
+
+/* ---------- Hero blocks ---------- */
+.hero {
+  padding-block: var(--space-7) var(--space-6);
+  background:
+    radial-gradient(60rem 28rem at 85% -10%, rgba(15, 118, 110, 0.12), transparent 60%),
+    radial-gradient(40rem 20rem at -5% 110%, rgba(217, 119, 6, 0.09), transparent 60%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+.hero-copy {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: start;
+}
+
+.hero-copy .search-bar {
+  width: 100%;
+  margin-top: var(--space-2);
+}
+
+.hero-panel {
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-md);
+}
+
+.hero-panel h2 {
+  font-size: 1.25rem;
+}
+
+.page-hero {
+  padding-block: var(--space-7) var(--space-6);
+  background: linear-gradient(180deg, var(--primary-soft), var(--bg));
+  border-bottom: 1px solid var(--line);
+}
+
+.page-hero .container {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+}
+
+.page-hero .search-bar {
+  width: 100%;
+  margin-top: var(--space-2);
+}
+
+.page-hero-danger {
+  background: linear-gradient(135deg, #fdecec, var(--bg));
+}
+
+.hero-icon {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-md);
+  background: var(--danger);
+  color: #fff;
+}
+
+/* ---------- Steps ---------- */
+.steps {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-4);
+  counter-reset: step;
+}
+
+@media (min-width: 720px) {
+  .steps {
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  }
+}
+
+.step {
+  position: relative;
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+  padding: var(--space-5);
+}
+
+.step p {
+  color: var(--muted);
+}
+
+.step .step-text-strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.step-icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-md);
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.step-number {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-5);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--line);
+  line-height: 1;
+}
+
+/* ---------- Doctors list ---------- */
+.result-count {
+  margin-block: var(--space-4);
+  color: var(--muted);
+  font-size: 0.925rem;
+  font-weight: 600;
+}
+
+.chip-row + .result-count {
+  margin-top: var(--space-4);
+}
+
+.doctor-grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  margin-top: var(--space-4);
+}
+
+.doctor-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+}
+
+.doctor-card:not(.skeleton-card):hover {
+  box-shadow: var(--shadow-md);
+  border-color: #c3d8d3;
+  transform: translateY(-2px);
+}
+
+.doctor-card-head {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.doctor-card-head h3 {
+  margin-bottom: 0.1rem;
+}
+
+.doctor-card .stat-row {
+  margin-top: auto;
+}
+
+.card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+}
+
+/* ---------- Doctor profile ---------- */
+.profile-layout,
+.booking-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .profile-layout {
+    grid-template-columns: minmax(0, 1fr) 20rem;
+  }
+
+  .booking-layout {
+    grid-template-columns: minmax(0, 1fr) 22rem;
+  }
+
+  .booking-card,
+  .summary-card {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-4));
+  }
+}
+
+.profile-main {
+  padding: var(--space-5);
+}
+
+@media (min-width: 640px) {
+  .profile-main {
+    padding: var(--space-6);
+  }
+}
+
+.profile-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.profile-head h1 {
+  margin-block: var(--space-2) var(--space-1);
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem);
+}
+
+.stat-tiles {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  margin-top: var(--space-5);
+}
+
+.stat-tiles > div {
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg);
+  border-radius: var(--radius-md);
+}
+
+.stat-tiles dt {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.stat-tiles dd {
+  font-weight: 700;
+}
+
+.slot-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.slot {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.4rem 0.85rem;
+  background: var(--primary-soft);
+  border-radius: 999px;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.booking-card,
+.summary-card {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-5);
+}
+
+.price {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: var(--space-2);
+}
+
+/* ---------- Booking ---------- */
+.form-card {
+  padding: var(--space-5);
+}
+
+@media (min-width: 640px) {
+  .form-card {
+    padding: var(--space-6);
+  }
+}
+
+.form-card .field {
+  margin-top: var(--space-4);
+}
+
+.form-card .form-grid .field {
+  margin-top: 0;
+}
+
+.slot-picker {
+  margin-top: var(--space-5);
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.slot-picker legend {
+  margin-bottom: var(--space-3);
+  padding: 0;
+}
+
+.slot-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.slot-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.slot-option span {
+  display: grid;
+  min-width: 6.5rem;
+  padding: 0.6rem 1rem;
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.slot-option span small {
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.slot-option:hover input:not(:disabled) + span {
+  border-color: var(--primary);
+}
+
+.slot-option input:checked + span {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.slot-option input:focus-visible + span {
+  box-shadow: var(--focus-ring);
+}
+
+.slot-option.disabled span {
+  background: var(--bg);
+  color: #8a9996;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+.slot-option.disabled span small {
+  text-decoration: none;
+}
+
+.privacy-note {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-block: var(--space-4);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.summary-card {
+  justify-items: start;
+}
+
+.fee-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg);
+  border-radius: var(--radius-md);
+  color: var(--muted);
+}
+
+.fee-box strong {
+  color: var(--ink);
+  font-size: 1.35rem;
+}
+
+.confirmation {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: center;
+  max-width: 34rem;
+  margin-inline: auto;
+  padding: var(--space-6) var(--space-5);
+  text-align: center;
+}
+
+.confirmation-icon {
+  display: grid;
+  place-items: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.confirmation h1 {
+  font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.1rem);
+}
+
+.summary-list {
+  width: 100%;
+  padding: var(--space-2) var(--space-4);
+  background: var(--bg);
+  border-radius: var(--radius-md);
+  text-align: left;
+}
+
+.summary-list > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+}
+
+.summary-list > div + div {
+  border-top: 1px solid var(--line);
+}
+
+.summary-list dt {
+  color: var(--muted);
+}
+
+.summary-list dd {
+  font-weight: 700;
+  text-align: right;
+}
+
+.confirmation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+/* ---------- My appointments ---------- */
+.appointment-list {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.appointment {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+}
+
+.appointment-body {
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+
+.appointment-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+}
+
+.appointment-body .meta-list {
+  margin-top: var(--space-2);
+}
+
+.appointment-reason {
+  margin-top: var(--space-2);
+  color: var(--muted);
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Auth ---------- */
+.auth-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+  align-items: center;
+  padding-block: var(--space-6) var(--space-7);
+}
+
+@media (min-width: 900px) {
+  .auth-layout {
+    grid-template-columns: minmax(0, 1fr) 28rem;
+    gap: var(--space-8);
+    padding-block: var(--space-7);
+  }
+}
+
+.auth-aside {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .auth-aside {
+    display: grid;
+    gap: var(--space-5);
+    align-content: center;
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(145deg, var(--primary), #0b524c);
+    color: #fff;
+    min-height: 26rem;
+  }
+
+  .auth-aside .check-dot {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+  }
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 30rem;
+  margin-inline: auto;
+  padding: var(--space-5);
+  box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 640px) {
+  .auth-card {
+    padding: var(--space-6);
+  }
+}
+
+.auth-card h1 {
+  font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2rem);
+  margin-bottom: var(--space-1);
+}
+
+.auth-switch {
+  margin-top: var(--space-5);
+  text-align: center;
+  color: var(--muted);
+}
+
+.auth-switch a {
+  font-weight: 700;
+}
+
+/* ---------- About / Emergency ---------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+}
+
+@media (min-width: 800px) {
+  .about-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.prose-card {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  padding: var(--space-5) var(--space-6);
+}
+
+.prose-card p {
+  color: var(--muted);
+}
+
+.helpline-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+}
+
+.helpline {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0 var(--space-3);
+  align-items: center;
+  height: 100%;
+  padding: var(--space-4) var(--space-5);
+  color: var(--ink);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.helpline:hover {
+  text-decoration: none;
+  border-color: var(--danger);
+  box-shadow: var(--shadow-md);
+}
+
+.helpline strong {
+  grid-column: 1;
+  font-size: 1.75rem;
+  color: var(--danger);
+  line-height: 1.2;
+}
+
+.helpline span {
+  grid-column: 1;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.helpline .icon {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  color: var(--danger);
+}
